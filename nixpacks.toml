@@ -1,5 +1,21 @@
 [phases.setup]
-aptPkgs = ["...", "libgomp1"]
+nixPkgs = [
+  "python312",
+  "gcc",
+  "libgcc.lib",
+  "gnumake"
+]
+
+[phases.install]
+cmds = [
+  "python -m venv /opt/venv",
+  ". /opt/venv/bin/activate",
+  "pip install --upgrade pip",
+  "pip install -r requirements.txt"
+]
+
+[phases.build]
+cmds = []
 
 [start]
 cmd = "python main.py"
