@@ -240,8 +240,9 @@ def prediction_job(market_config, forecast_config, log_config):
 
     except Exception as e:
         err_line = f"[{datetime.now():%Y-%m-%d %H:%M:%S}] ERRORE: {e}"
-        with open(log_config.log_file, "a") as f:
-            f.write(err_line + "\n")
+        if 1 == 2:
+            with open(log_config.log_file, "a") as f:
+                f.write(err_line + "\n")
         return None
 
 

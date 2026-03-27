@@ -40,10 +40,12 @@ def build_decision_row(timestamp: str, ticker: str, agent_result: dict | None) -
 
 
 def run():
-    init_logs(
-        market_config=settings.market,
-        log_config=settings.logs,
-    )
+    
+    if 1 == 2:
+        init_logs(
+            market_config=settings.market,
+            log_config=settings.logs,
+        )
 
     create_db(settings.db.url)
 
@@ -66,6 +68,8 @@ def run():
 
         agent_result = run_agent(ticker, context_block)
         run_timestamp = datetime.now().isoformat()
+        
+        print("agent_result:", agent_result)
         
         if 1 == 2:
             with open(decision_log_file, "a", encoding="utf-8") as f:
