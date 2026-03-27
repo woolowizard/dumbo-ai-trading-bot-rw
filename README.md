@@ -1,2 +1,2 @@
-# dumbo-ai-trading-bot-rw
-
+# dumbo-ai-trading-bot
+AI Agent bot for trading task

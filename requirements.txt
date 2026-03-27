@@ -1,0 +1,13 @@
+numpy==1.26.4
+pandas==2.2.2
+yfinance==0.2.40
+ta==0.11.0
+lightgbm==4.3.0
+scikit-learn==1.5.0
+requests==2.31.0
+openai==1.30.1
+alpaca-py==0.21.0
+python-dotenv==1.0.1
+psycopg[binary]==3.2.6
+setuptools>=65.0.0
+wheel
