@@ -59,24 +59,21 @@ def run():
             log_config=settings.logs,
             news_config=settings.news,
         )
-        
-        print(context_block)
 
-        with open(prompt_log_file, "a", encoding="utf-8") as f:
-            f.write(json.dumps(context_block, ensure_ascii=False) + "\n")
+        """with open(prompt_log_file, "a", encoding="utf-8") as f:
+            f.write(json.dumps(context_block, ensure_ascii=False) + "\n")"""
 
         agent_result = run_agent(ticker, context_block)
         run_timestamp = datetime.now().isoformat()
         
-        print('agent_result:', agent_result)
 
-        with open(decision_log_file, "a", encoding="utf-8") as f:
+        """with open(decision_log_file, "a", encoding="utf-8") as f:
             f.write(json.dumps({
                 "timestamp": run_timestamp,
                 "ticker": ticker,
                 "context_block": context_block,
                 "agent_result": agent_result,
-            }, ensure_ascii=False) + "\n")
+            }, ensure_ascii=False) + "\n")"""
 
         row = build_decision_row(run_timestamp, ticker, agent_result)
         
