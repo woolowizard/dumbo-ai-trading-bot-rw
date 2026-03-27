@@ -167,7 +167,7 @@ def train_model(market_config, forecast_config):
 # ─────────────────────────────────────────────
 # LOGGING
 # ─────────────────────────────────────────────
-def log_prediction(last_close, predicted_price, last_candle_time, log_file, forecast_config, market_config):
+def log_prediction(last_close, predicted_price, last_candle_time, forecast_config, market_config):
     change_pct = (predicted_price - last_close) / last_close * 100
     direction = "+" if change_pct > 0 else "-"
 
@@ -180,10 +180,6 @@ def log_prediction(last_close, predicted_price, last_candle_time, log_file, fore
         f"Predicted: ${predicted_price:.2f} | "
         f"Change: {direction}{abs(change_pct):.2f}%"
     )
-
-    if 1 == 2:
-        with open(log_file, "a") as f:
-            f.write(line + "\n")
 
     decoder = {"+": "up", "-": "down"}
 
@@ -201,7 +197,7 @@ def log_prediction(last_close, predicted_price, last_candle_time, log_file, fore
 # ─────────────────────────────────────────────
 # PREDICTION JOB
 # ─────────────────────────────────────────────
-def prediction_job(market_config, forecast_config, log_config):
+def prediction_job(market_config, forecast_config):
     try:
         if _state["model"] is None:
             _state["model"], _state["feature_cols"], _ = train_model(
@@ -233,16 +229,17 @@ def prediction_job(market_config, forecast_config, log_config):
             last_close=last_close,
             predicted_price=predicted_price,
             last_candle_time=last_candle_ts,
-            log_file=log_config.log_file,
             forecast_config=forecast_config,
             market_config=market_config,
         )
 
     except Exception as e:
+        
+        # TODO: Qui va migliorata la gestione dell'eccezione 
+        
         err_line = f"[{datetime.now():%Y-%m-%d %H:%M:%S}] ERRORE: {e}"
-        if 1 == 2:
-            with open(log_config.log_file, "a") as f:
-                f.write(err_line + "\n")
+        print("Exception:", str(e))
+        
         return None
 
 

@@ -9,7 +9,7 @@ from src.trading_bot.forecast import (
     get_quant_index, train_model
 )
 
-def build_context_block(market_config, forecast_config, log_config, news_config) -> dict:
+def build_context_block(market_config, forecast_config, news_config) -> dict:
     context_block = {}
 
     print("=" * 60)
@@ -20,7 +20,7 @@ def build_context_block(market_config, forecast_config, log_config, news_config)
 
     print("=" * 60)
     print(f"[{datetime.now():%Y-%m-%d %H:%M:%S}] Avvio forecast per — {market_config.ticker}")
-    context_block["forecast"] = prediction_job(market_config, forecast_config, log_config)
+    context_block["forecast"] = prediction_job(market_config, forecast_config)
     print(f"[{datetime.now():%Y-%m-%d %H:%M:%S}] Forecast completato")
 
     print("=" * 60)

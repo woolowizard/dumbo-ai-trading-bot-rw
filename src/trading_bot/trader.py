@@ -8,6 +8,8 @@ from alpaca.trading.client import TradingClient
 from alpaca.trading.requests import MarketOrderRequest
 from alpaca.trading.enums import OrderSide, TimeInForce
 
+# TODO: Vedere se funziona rimuovendo questi
+
 OPENAI_API_KEY = os.environ["OPENAI_API_KEY"]
 API_KEY = os.environ["API_KEY"]
 API_SECRET = os.environ["API_SECRET"]
