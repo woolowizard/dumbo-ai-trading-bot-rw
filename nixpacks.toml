@@ -1,0 +1,5 @@
+[phases.setup]
+aptPkgs = ["...", "libgomp1"]
+
+[start]
+cmd = "python main.py"
