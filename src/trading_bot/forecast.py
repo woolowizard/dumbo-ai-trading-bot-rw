@@ -181,8 +181,9 @@ def log_prediction(last_close, predicted_price, last_candle_time, log_file, fore
         f"Change: {direction}{abs(change_pct):.2f}%"
     )
 
-    with open(log_file, "a") as f:
-        f.write(line + "\n")
+    if 1 == 2:
+        with open(log_file, "a") as f:
+            f.write(line + "\n")
 
     decoder = {"+": "up", "-": "down"}
 
