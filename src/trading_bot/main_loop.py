@@ -1,10 +1,9 @@
-import json
 from datetime import datetime
 
 from src.trading_bot.config import settings
-from src.trading_bot.init_logs import init_logs
 from src.trading_bot.trader import run_agent
 from src.trading_bot.context_block_builder import build_context_block
+
 from utils.db_init import create_db
 from utils.db_utils import insert_decision_rows
 
@@ -41,17 +40,9 @@ def build_decision_row(timestamp: str, ticker: str, agent_result: dict | None) -
 
 def run():
     
-    if 1 == 2:
-        init_logs(
-            market_config=settings.market,
-            log_config=settings.logs,
-        )
-
     create_db(settings.db.url)
 
     ticker = settings.market.ticker
-    prompt_log_file = settings.logs.log_prompt_file
-    decision_log_file = settings.logs.log_decision_file
     database_url = settings.db.url
 
     try:
@@ -62,24 +53,8 @@ def run():
             news_config=settings.news,
         )
 
-        if 1 == 2:
-            with open(prompt_log_file, "a", encoding="utf-8") as f:
-                f.write(json.dumps(context_block, ensure_ascii=False) + "\n")
-
         agent_result = run_agent(ticker, context_block)
         run_timestamp = datetime.now().isoformat()
-        
-        print("agent_result:", agent_result)
-        
-        if 1 == 2:
-            with open(decision_log_file, "a", encoding="utf-8") as f:
-                f.write(json.dumps({
-                    "timestamp": run_timestamp,
-                    "ticker": ticker,
-                    "context_block": context_block,
-                    "agent_result": agent_result,
-                }, ensure_ascii=False) + "\n")
-
         row = build_decision_row(run_timestamp, ticker, agent_result)
         
         print('Decision:', row)
@@ -90,11 +65,8 @@ def run():
         return agent_result
 
     except Exception as e:
-        with open(decision_log_file, "a", encoding="utf-8") as f:
-            f.write(json.dumps({
-                "timestamp": datetime.now().isoformat(),
-                "ticker": ticker,
-                "error": str(e),
-            }, ensure_ascii=False) + "\n")
+        
+        # Qui va aggiunta la gestione dell'eccezione
+        print("Exception:", str(e))
 
         return None
