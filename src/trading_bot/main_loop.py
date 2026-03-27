@@ -59,6 +59,8 @@ def run():
             log_config=settings.logs,
             news_config=settings.news,
         )
+        
+        print(context_block)
 
         with open(prompt_log_file, "a", encoding="utf-8") as f:
             f.write(json.dumps(context_block, ensure_ascii=False) + "\n")
