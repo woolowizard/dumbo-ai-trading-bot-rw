@@ -60,20 +60,21 @@ def run():
             news_config=settings.news,
         )
 
-        """with open(prompt_log_file, "a", encoding="utf-8") as f:
-            f.write(json.dumps(context_block, ensure_ascii=False) + "\n")"""
+        if 1 == 2:
+            with open(prompt_log_file, "a", encoding="utf-8") as f:
+                f.write(json.dumps(context_block, ensure_ascii=False) + "\n")
 
         agent_result = run_agent(ticker, context_block)
         run_timestamp = datetime.now().isoformat()
         
-
-        """with open(decision_log_file, "a", encoding="utf-8") as f:
-            f.write(json.dumps({
-                "timestamp": run_timestamp,
-                "ticker": ticker,
-                "context_block": context_block,
-                "agent_result": agent_result,
-            }, ensure_ascii=False) + "\n")"""
+        if 1 == 2:
+            with open(decision_log_file, "a", encoding="utf-8") as f:
+                f.write(json.dumps({
+                    "timestamp": run_timestamp,
+                    "ticker": ticker,
+                    "context_block": context_block,
+                    "agent_result": agent_result,
+                }, ensure_ascii=False) + "\n")
 
         row = build_decision_row(run_timestamp, ticker, agent_result)
         
