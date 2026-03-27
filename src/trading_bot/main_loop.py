@@ -75,6 +75,9 @@ def run():
             }, ensure_ascii=False) + "\n")
 
         row = build_decision_row(run_timestamp, ticker, agent_result)
+        
+        print(row)
+        
         if row:
             insert_decision_rows(database_url, [row])
 
