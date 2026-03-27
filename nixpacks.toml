@@ -1,7 +1,0 @@
-[phases.setup]
-aptPkgs = ["libgomp1"]
-nixPkgs = ["...", "python312"]
-nixLibs = ["...", "libgcc.lib"]
-
-[start]
-cmd = "python main.py"
