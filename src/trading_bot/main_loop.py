@@ -45,6 +45,7 @@ def run():
     ticker = settings.market.ticker
     database_url = settings.db.url
 
+    # Drop log info
     try:
         context_block = build_context_block(
             market_config=settings.market,
