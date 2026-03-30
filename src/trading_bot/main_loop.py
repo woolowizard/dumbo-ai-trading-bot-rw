@@ -49,7 +49,6 @@ def run():
         context_block = build_context_block(
             market_config=settings.market,
             forecast_config=settings.forecast,
-            log_config=settings.logs,
             news_config=settings.news,
         )
 
