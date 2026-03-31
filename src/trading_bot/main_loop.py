@@ -5,7 +5,7 @@ from src.trading_bot.trader import run_agent
 from src.trading_bot.context_block_builder import build_context_block
 
 from utils.db_init import create_db
-from utils.db_utils import insert_decision_rows
+from utils.db_utils import insert_decision_rows, table_cleaner
 
 
 def build_decision_row(timestamp: str, ticker: str, agent_result: dict | None) -> dict | None:
@@ -45,7 +45,6 @@ def run():
     ticker = settings.market.ticker
     database_url = settings.db.url
 
-    # Drop log info
     try:
         context_block = build_context_block(
             market_config=settings.market,
@@ -57,16 +56,19 @@ def run():
         run_timestamp = datetime.now().isoformat()
         row = build_decision_row(run_timestamp, ticker, agent_result)
         
-        print('Decision:', row)
-        
         if row:
             insert_decision_rows(database_url, [row])
+        
+        now = datetime.now()
+
+        if now.hour == 13 and 0 <= now.minute <= 30:
+            table_cleaner(database_url, 'trading_bot_news')
 
         return agent_result
 
     except Exception as e:
         
-        # Qui va aggiunta la gestione dell'eccezione
+        # TODO: Qui va aggiunta la gestione dell'eccezione
         print("Exception:", str(e))
 
         return None

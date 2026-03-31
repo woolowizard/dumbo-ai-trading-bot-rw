@@ -109,3 +109,19 @@ def insert_decision_rows(database_url: str, rows: list[dict]) -> None:
     with get_connection(database_url) as conn:
         with conn.cursor() as cur:
             cur.executemany(query, values)
+            
+def table_cleaner(database_url: str, table_name: str) -> None:
+    if not table_name:
+        return
+
+    # whitelist semplice (molto importante)
+    if not table_name.isidentifier():
+        raise ValueError("Invalid table name")
+
+    query = f"TRUNCATE TABLE {table_name}"
+
+    with get_connection(database_url) as conn:
+        with conn.cursor() as cur:
+            cur.execute(query)
+        conn.commit()
+    
