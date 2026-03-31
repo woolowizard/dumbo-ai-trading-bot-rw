@@ -18,6 +18,17 @@ def create_db(database_url: str) -> None:
                 )
                 """
             )
+            
+            cursor.execute(
+                """
+                CREATE TABLE IF NOT EXISTS trading_bot_predictions (
+                    id BIGSERIAL PRIMARY KEY,
+                    ticker TEXT NOT NULL,
+                    pred_value DOUBLE PRECISION DEFAULT NULL,
+                    created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
+                )
+                """
+            )
 
             cursor.execute(
                 """
