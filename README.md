@@ -92,27 +92,6 @@ NEWS_LIMIT=3
 
 ---
 
-## 📦 Installazione
-
-```bash
-# Clona il repository
-git clone https://github.com/tuo-username/ai-trading-bot.git
-cd ai-trading-bot
-
-# Crea virtual environment
-python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
-
-# Installa dipendenze
-pip install -r requirements.txt
-
-# Inizializza il database
-python -c "from utils.db_init import create_db; from src.trading_bot.config import settings; create_db(settings.db.url)"
-
-# Esegui il bot
-python src/trading_bot/main_loop.py
-```
-
 ### Requirements
 
 ```txt
@@ -227,7 +206,6 @@ Il bot implementa diverse protezioni:
 |--------|-----------------|
 | **Capital Preservation** | Priorità alla protezione del capitale vs profitto |
 | **Position Sizing** | `size_pct` proporzionale alla confidence (0.0-1.0) |
-| **Notional Minimum** | No ordini sotto $1.00 |
 | **Confidence Threshold** | Hold automatico se segnali deboli/conflittuali |
 | **Proactive Exit** | Possibilità di vendita anche senza profitto per protezione |
 
