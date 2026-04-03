@@ -273,16 +273,6 @@ Decision: {
 
 ---
 
-## 🚧 Roadmap
-
-- [ ] Webhook per alert real-time
-- [ ] Backtesting engine integrato
-- [ ] Multi-asset portfolio management
-- [ ] Risk metrics (Sharpe, Max Drawdown)
-- [ ] Dashboard web per monitoraggio
-
----
-
 ## ⚠️ Disclaimer
 
 > **Questo progetto è per scopi educativi e di ricerca.** Il trading comporta rischi significativi di perdita. Non utilizzare in produzione senza estensivo backtesting e validazione. L'autore non è responsabile per perdite finanziarie.
@@ -296,7 +286,5 @@ MIT License - vedi [LICENSE](LICENSE)
 ---
 
 <div align="center">
-
-**Creato con ❤️ e 🤖**
 
 </div>
