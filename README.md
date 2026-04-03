@@ -49,8 +49,8 @@ Questo progetto implementa un **trading bot autonomo** che combina:
 
 | Componente | Tecnologia | Scopo |
 |------------|-----------|-------|
-| ![LightGBM](https://kimi-web-img.moonshot.cn/img/miro.medium.com/32169388d773c82640e27b932ea38b3e2ad51503) | **LightGBM** | Modello di regressione per predizione prezzi |
-| ![Alpha Vantage](https://lightgbm.readthedocs.io/en/latest/_images/LightGBM_logo_black_text.svg) | **Alpha Vantage** | News e sentiment analysis |
+| ![LightGBM](https://lightgbm.readthedocs.io/en/latest/_images/LightGBM_logo_black_text.svg) | **LightGBM** | Modello di regressione per predizione prezzi |
+| ![Alpha Vantage](https://kimi-web-img.moonshot.cn/img/res.cloudinary.com/0e48d763026816cac9b0a6f64ac1463aa3d14fba.jpg) | **Alpha Vantage** | News e sentiment analysis |
 | ![Alpaca](https://kimi-web-img.moonshot.cn/img/alpaca.markets/b73b1794bb6b630014f422ef4c79f83ebea24669.png) | **Alpaca Markets** | Paper trading e esecuzione ordini |
 | ![OpenAI](https://kimi-web-img.moonshot.cn/img/us1.discourse-cdn.com/1df5db2d844ccdb11f31a89117d039fd3147dbdf.png) | **OpenAI GPT** | Analisi news e decisioni trading |
 
