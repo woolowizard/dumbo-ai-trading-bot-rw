@@ -3,7 +3,7 @@
 <div align="center">
 
 [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/)
-[![LightGBM](https://img.shields.io/badge/LightGBM-4.0+-brightgreen.svg)](https://lightgbm.readthedocs.io/)
+[![LightGBM](https://lightgbm.readthedocs.io/en/latest/_images/LightGBM_logo_black_text.svg)](https://lightgbm.readthedocs.io/)
 [![Alpaca](https://img.shields.io/badge/Alpaca-Paper%20Trading-yellow.svg)](https://alpaca.markets/)
 [![OpenAI](https://img.shields.io/badge/OpenAI-GPT--5--nano-74aa9c.svg)](https://openai.com/)
 
